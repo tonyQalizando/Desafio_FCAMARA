@@ -1,0 +1,8 @@
+#!/bin/sh
+
+docker rm -f cucumber-httparty
+docker rmi -f cucumber/httparty
+docker build -t cucumber/httparty -f Dockerfile .
+docker run --name cucumber-httparty cucumber/httparty $@
+docker rm -f cucumber-httparty
+docker rmi -f cucumber/httparty
